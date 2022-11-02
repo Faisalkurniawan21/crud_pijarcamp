@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
+  </head>
+
+  <body>
+    <!-- Create Post -->
+    <div>
+      <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
+        <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
+          <div class="mb-4">
+            <h1 class="font-serif text-3xl font-bold underline decoration-gray-400">
+              Edit Product
+            </h1>
+          </div>
+          {{#if error}}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-2" role="alert">
+              <span class="block sm:inline">{{error}}</span>
+              <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+              </span>
+            </div>
+          {{/if}}
+          <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
+            <form method="POST" action="/update/{{data.id}}">
+              <div>
+                <label class="block text-sm font-bold text-gray-700">
+                  Nama Produk
+                </label>
+                <input
+                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="text"
+                  name="nama_produk"
+                  required
+                  value="{{data.nama_produk}}"
+                />
+              </div>
+              <div class="mt-4">
+                <label class="block text-sm font-bold text-gray-700">
+                  Keterangan
+                </label>
+                <input
+                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="text"
+                  name="keterangan"
+                  required
+                  value="{{data.keterangan}}"
+                />
+              </div>
+              <div class="mt-4">
+                <label class="block text-sm font-bold text-gray-700">
+                  Harga
+                </label>
+                <input
+                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="number"
+                  name="harga"
+                  required
+                  value="{{data.harga}}"
+                />
+              </div>
+              <div class="mt-4">
+                <label class="block text-sm font-bold text-gray-700">
+                  Jumlah
+                </label>
+                <input
+                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="number"
+                  name="jumlah"
+                  required
+                  value="{{data.jumlah}}"
+                />
+              </div>
+              <div class="flex items-center justify-start mt-4 gap-x-2">
+                <button type="submit"
+                  class="px-6 py-2 text-sm font-semibold rounded-md shadow-md text-sky-100 bg-sky-500 hover:bg-sky-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300">
+                  Save
+                </button>
+                <button type="submit"
+                  class="px-6 py-2 text-sm font-semibold text-gray-100 bg-gray-400 rounded-md shadow-md hover:bg-gray-600 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
